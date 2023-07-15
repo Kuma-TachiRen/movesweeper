@@ -1,17 +1,28 @@
-.flex-container {
+#header {
+    width: 100%;
     display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#title {
+    font-size: xx-large;
+    font-weight: bolder;
 }
 
 #main-container {
     width: 100%;
     display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
 }
 
-.game {}
+#game {}
 
-.game-menu {
+#game-menu {
+    display: flex;
     justify-content: space-between;
 }
 
@@ -39,25 +50,50 @@
     border-spacing: 0;
 }
 
-.game-row {}
+.game-row {
+    white-space: nowrap;
+}
 
 .game-cell {
-    background-color: #eeeeee;
+    background-color: #dddddd;
     height: 24px;
     width: 24px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: default;
-    margin: 1px;
+    border: white solid 1px;
 }
 
 .game-cell[opened] {
+    background-color: #eeeeee;
+}
+
+.game-cell[mine] {
+    background-color: #ff8888;
+}
+
+#setting {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#setting th:not([colspan]),
+#setting td:not([colspan]) {
+    width: 30px;
+}
+
+#setting th {
     background-color: #dddddd;
 }
 
-.game-cell[mine] {}
+#setting td {
+    background-color: #eeeeee;
+}
 
-.game-cell[mine][opened] {
-    background-color: #ff8888;
+#setting input[type=number] {
+    width: 60px;
 }

@@ -8,9 +8,104 @@
 </head>
 
 <body>
+    <div id="header">
+        <span id="title">Movesweeper</span>
+    </div>
     <div id="main-container">
-        <div class="game">
-            <table id="game-board"></table>
+        <div id="game">
+            <table id="game-board">
+                <thead>
+                    <tr>
+                        <td colspan=${width}>
+                            <div id="game-menu">
+                                <div id="game-timer"></div>
+                                <div id="game-reset">🙂</div>
+                                <div id="game-mines"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="setting">
+            <div>
+                <div style="display:flex;">
+                    <table id="setting-difficulty">
+                        <thead>
+                            <tr>
+                                <th colspan="2" rowspan="2"></th>
+                                <th colspan="4">Board</th>
+                            </tr>
+                            <tr>
+                                <th>B</th>
+                                <th>I</th>
+                                <th>E</th>
+                                <th>C</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th rowspan="4">Interval</th>
+                                <th>B</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>I</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>E</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>C</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Custom</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th><label for="custom-height">Height</label></th>
+                                <td><input type="number" id="custom-height" min="9" max="24" value="9" /></td>
+                            </tr>
+                            <tr>
+                                <th><label for="custom-width">Width</label></th>
+                                <td><input type="number" id="custom-width" min="9" max="30" value="9" /></td>
+                            </tr>
+                            <tr>
+                                <th><label for="custom-mines">Mines</label></th>
+                                <td><input type="number" id="custom-mines" min="10" max="999" value="10" /></td>
+                            </tr>
+                            <tr>
+                                <th><label for="custom-interval">Interval</label></th>
+                                <td><input type="number" id="custom-interval" min="100" max="10000" step="100" value="2000" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <span><b>B</b>=Beginner <b>I</b>=Intermediate <b>E</b>=Expert <b>C</b>=Custom</span>
+            </div>
         </div>
     </div>
     <script src="js/board.js"></script>

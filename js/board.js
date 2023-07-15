@@ -1,21 +1,21 @@
 class Board {
     data;
     opened = false;
-    constructor(size_x, size_y, mine_count) {
-        this.size_x = size_x;
-        this.size_y = size_y;
-        this.mine_count = Math.min(mine_count, size_x * size_y);
+    constructor(height, width, mine_count) {
+        this.height = height;
+        this.width = width;
+        this.mine_count = Math.min(mine_count, height * width);
         this.initBoard();
     }
 
     initBoard() {
-        this.data = new Array(this.size_x * this.size_y).fill(-1);
+        this.data = new Array(this.height * this.width).fill(-1);
     }
 
     addBombs(opened_x, opened_y) {
         const opened_z = this.posToNum(opened_x, opened_y);
         const rnd = [];
-        let cell_cnt = this.size_x * this.size_y - 1;
+        let cell_cnt = this.height * this.width - 1;
         for (let i = 0; i < this.mine_count; i++, cell_cnt--) rnd.push(this.randomInt(cell_cnt));
         rnd.sort();
         for (let i = 0; i < this.mine_count; i++) {
@@ -57,7 +57,7 @@ class Board {
     }
 
     moveMines() {
-        const size = this.size_x * this.size_y;
+        const size = this.height * this.width;
         const mines = [];
         for (let z = 0; z < size; z++) if (this.data[z] == 1) mines.push(z);
         for (let i = mines.length; i > 1; i--) {
@@ -66,11 +66,7 @@ class Board {
         }
         mines.forEach((z) => {
             const adj = this.adjacentCells4Dir(z);
-            adj.push(z);
-            let cnt = 0;
-            adj.forEach((w) => { if (this.data[w] == -1) cnt++; });
-            if (cnt == 0) return;
-            let k = this.randomInt(cnt);
+            let k = this.randomInt(5);
             adj.forEach((w) => {
                 if (this.data[w] == -1) {
                     if (k-- == 0) {
@@ -83,8 +79,8 @@ class Board {
     }
 
     get adjMineCount() {
-        const ret = new Array(size_x).fill(null).map(() => { return new Array(this.size_y).fill(0) });
-        const size = this.size_x * this.size_y;
+        const ret = new Array(height).fill(null).map(() => { return new Array(this.width).fill(0) });
+        const size = this.height * this.width;
         for (let z = 0; z < size; z++) {
             const adj = this.adjacentCells(z);
             let cnt = 0;
@@ -101,16 +97,16 @@ class Board {
         let y = this.numToPosY(z);
         const ret = [];
         if (x > 0) {
-            if (y > 0) ret.push(z - this.size_y - 1);
-            ret.push(z - this.size_y);
-            if (y + 1 < this.size_y) ret.push(z - this.size_y + 1);
+            if (y > 0) ret.push(z - this.width - 1);
+            ret.push(z - this.width);
+            if (y + 1 < this.width) ret.push(z - this.width + 1);
         }
         if (y > 0) ret.push(z - 1);
-        if (y + 1 < this.size_y) ret.push(z + 1);
-        if (x + 1 < this.size_x) {
-            if (y > 0) ret.push(z + this.size_y - 1);
-            ret.push(z + this.size_y);
-            if (y + 1 < this.size_y) ret.push(z + this.size_y + 1);
+        if (y + 1 < this.width) ret.push(z + 1);
+        if (x + 1 < this.height) {
+            if (y > 0) ret.push(z + this.width - 1);
+            ret.push(z + this.width);
+            if (y + 1 < this.width) ret.push(z + this.width + 1);
         }
         return ret;
     }
@@ -119,15 +115,15 @@ class Board {
         let x = this.numToPosX(z);
         let y = this.numToPosY(z);
         const ret = [];
-        if (x > 0) ret.push(z - this.size_y);
-        if (x + 1 < this.size_x) ret.push(z + this.size_y);
+        if (x > 0) ret.push(z - this.width);
+        if (x + 1 < this.height) ret.push(z + this.width);
         if (y > 0) ret.push(z - 1);
-        if (y + 1 < this.size_y) ret.push(z + 1);
+        if (y + 1 < this.width) ret.push(z + 1);
         return ret;
     }
 
-    posToNum(x, y) { return x * this.size_y + y; }
-    numToPosX(z) { return Math.floor(z / this.size_y); }
-    numToPosY(z) { return z % this.size_y; }
+    posToNum(x, y) { return x * this.width + y; }
+    numToPosX(z) { return Math.floor((z - this.numToPosY(z) + 0.5) / this.width); }
+    numToPosY(z) { return Math.floor((z + 0.5) % this.width); }
     randomInt(n) { return Math.min(n - 1, Math.floor(n * Math.random())); }
 }

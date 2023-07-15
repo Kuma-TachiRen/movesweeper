@@ -5,18 +5,19 @@ class Game {
     time = 0;
     timer_id;
     move_timer_id;
-    constructor(size_x, size_y, mine_count, move_interval, render) {
-        this.size_x = size_x;
-        this.size_y = size_y;
+    constructor(height, width, mine_count, move_interval, render) {
+        this.height = height;
+        this.width = width;
         this.mine_count = mine_count;
         this.move_interval = move_interval;
         this.render = render;
-        this.board = new Board(size_x, size_y, mine_count);
+        this.board = new Board(height, width, mine_count);
     }
 
     setTimer() {
         this.timer_id = setInterval(() => {
             this.time++;
+            this.render();
         }, 1000);
     }
 
@@ -51,7 +52,7 @@ class Game {
 
     get boardInfo() {
         const count = this.board.adjMineCount;
-        let size = this.size_x * this.size_y;
+        let size = this.height * this.width;
         let ended = this.win || this.lose;
         const ret = new Array(size).fill(0).map((e, z) => {
             switch (this.board.data[z]) {
