@@ -2,18 +2,62 @@
     display: flex;
 }
 
+#main-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game {}
+
 .game-menu {
     justify-content: space-between;
 }
 
-.game-cell {
-    background-color: #eeeeee;
-    height: 20px;
-    width: 20px;
+#game-reset {
+    height: 40px;
+    width: 40px;
+    background-color: #dddddd;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
 }
 
-.game-cell-opened {
+#game-timer,
+#game-mines {
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-board {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.game-row {}
+
+.game-cell {
+    background-color: #eeeeee;
+    height: 24px;
+    width: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    margin: 1px;
+}
+
+.game-cell[opened] {
     background-color: #dddddd;
-    height: 20px;
-    width: 20px;
+}
+
+.game-cell[mine] {}
+
+.game-cell[mine][opened] {
+    background-color: #ff8888;
 }
