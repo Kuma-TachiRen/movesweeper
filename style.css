@@ -1,0 +1,19 @@
+.flex-container {
+    display: flex;
+}
+
+.game-menu {
+    justify-content: space-between;
+}
+
+.game-cell {
+    background-color: #eeeeee;
+    height: 20px;
+    width: 20px;
+}
+
+.game-cell-opened {
+    background-color: #dddddd;
+    height: 20px;
+    width: 20px;
+}
