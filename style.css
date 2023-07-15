@@ -1,3 +1,7 @@
+:root {
+    font-family: monospace, selif;
+}
+
 #header {
     width: 100%;
     display: flex;
@@ -17,6 +21,28 @@
     flex-flow: column;
     align-items: center;
     justify-content: center;
+}
+
+details {
+    width: 100%;
+    max-width: 400px;
+    border: gray solid 2px;
+    border-radius: 8px;
+}
+
+details>* {
+    padding: 8px;
+}
+
+details>summary {
+    cursor: pointer;
+    text-align: center;
+    list-style: none;
+    padding: 5px;
+}
+
+details[open]>summary {
+    border-bottom: gray solid 1px;
 }
 
 #game {}
