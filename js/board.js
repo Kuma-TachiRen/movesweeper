@@ -22,7 +22,6 @@ class Board {
             rnd[i] += i;
             if (rnd[i] >= opened_z) rnd[i]++;
             this.data[rnd[i]] = 1;
-            console.log(rnd[i]);
         }
     }
 

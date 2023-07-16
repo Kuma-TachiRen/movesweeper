@@ -20,11 +20,11 @@
 
 .pop-up-open {
     cursor: pointer;
-    line-height: 5vh;
-    height: 5vh;
-    width: 5vh;
+    line-height: 4vh;
+    height: 4vh;
+    width: 4vh;
     border: var(--main-color) solid 1px;
-    font-size: 4vh;
+    font-size: 3vh;
     margin: 2px;
 }
 
@@ -67,11 +67,11 @@
     position: absolute;
     top: 1vh;
     right: 1vh;
-    line-height: 5vh;
-    height: 5vh;
-    width: 5vh;
+    line-height: 4vh;
+    height: 4vh;
+    width: 4vh;
     border: var(--main-color) solid 1px;
-    font-size: 4vh;
+    font-size: 3vh;
     content: '×';
     color: var(--main-color);
 }
@@ -168,4 +168,8 @@
     width: 15vh;
     height: 3vh;
     font-size: 1rem;
+}
+
+#setting input[type=number]:disabled {
+    background-color: #aaaaaa;
 }

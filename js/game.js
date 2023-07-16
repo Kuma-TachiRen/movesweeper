@@ -58,7 +58,7 @@ class Game {
             switch (this.board.data[z]) {
                 case -1: return -1;
                 case 0: return count[z];
-                case 1: return -2;//ended ? -2 : -1;
+                case 1: return ended ? -2 : -1;
                 case 2: return -3;
             }
         });

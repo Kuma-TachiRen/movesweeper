@@ -29,21 +29,26 @@ document.getElementById('setting-apply').addEventListener('click', () => {
     render();
 });
 
-const elm_board = document.querySelector('#game-board > tbody');
-
-elm_board.addEventListener('click', e => {
-    if (game.win || game.lose) return;
-    var elm_clicked = e.target;
-    if (elm_clicked.classList.contains('game-cell')) {
-        var x = parseInt(elm_clicked.dataset.x);
-        var y = parseInt(elm_clicked.dataset.y);
-        game.open(x, y);
+document.getElementById('setting-difficulty').addEventListener('change', e => {
+    if (e.target.value == 3) {
+        document.getElementById('custom-height').removeAttribute('disabled');
+        document.getElementById('custom-width').removeAttribute('disabled');
+        document.getElementById('custom-mines').removeAttribute('disabled');
+    }
+    else {
+        document.getElementById('custom-height').setAttribute('disabled', true);
+        document.getElementById('custom-width').setAttribute('disabled', true);
+        document.getElementById('custom-mines').setAttribute('disabled', true);
     }
 });
 
-document.getElementById('game-reset').addEventListener('click', () => {
-    init();
-    render();
+document.getElementById('setting-interval').addEventListener('change', e => {
+    if (e.target.value == 3) {
+        document.getElementById('custom-interval').removeAttribute('disabled');
+    }
+    else {
+        document.getElementById('custom-interval').setAttribute('disabled', true);
+    }
 });
 
 document.getElementById('custom-height').addEventListener('input', e => { clampNumberInput(e.target); updateMaxMines(); });
@@ -66,6 +71,23 @@ function clampNumberInput(e) {
     if (e.getAttribute('max')) val = Math.min(val, Number.parseFloat(e.getAttribute('max')));
     e.value = val;
 }
+
+const elm_board = document.querySelector('#game-board > tbody');
+
+elm_board.addEventListener('click', e => {
+    if (game.win || game.lose) return;
+    var elm_clicked = e.target;
+    if (elm_clicked.classList.contains('game-cell')) {
+        var x = parseInt(elm_clicked.dataset.x);
+        var y = parseInt(elm_clicked.dataset.y);
+        game.open(x, y);
+    }
+});
+
+document.getElementById('game-reset').addEventListener('click', () => {
+    init();
+    render();
+});
 
 function setDifficulty(board, interval) {
     switch (board) {
