@@ -16,7 +16,7 @@
             <table id="game-board">
                 <thead>
                     <tr>
-                        <td colspan=${width}>
+                        <td>
                             <div id="game-menu">
                                 <div id="game-timer"></div>
                                 <div id="game-reset">🙂</div>
@@ -29,119 +29,76 @@
                 </tbody>
             </table>
         </div>
-        <div id="setting">
-            <label class="pop-up-open" for="pop-up-setting">Setting</label>
-            <input type="checkbox" id="pop-up-setting" class="pop-up-checkbox">
-            <div class="pop-up-overlay">
-                <div class="pop-up-window">
-                    <label class="pop-up-close" for="pop-up-setting"></label>
-                    <div class="flex">
-                        <table id="setting-difficulty">
-                            <thead>
-                                <tr>
-                                    <th colspan="2" rowspan="2"></th>
-                                    <th colspan="4">Board</th>
-                                </tr>
-                                <tr>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">9x9,💣x10</span>
-                                        B
-                                    </th>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">16x16,💣x40</span>
-                                        I
-                                    </th>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">16x30,💣x99</span>
-                                        E
-                                    </th>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">Custom</span>
-                                        C
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th rowspan="4">Interval</th>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">2.0 sec</span>
-                                        B
-                                    </th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">1.0 sec</span>
-                                        I
-                                    </th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">0.5 sec</span>
-                                        E
-                                    </th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th class="tooltip">
-                                        <span class="tooltip-text">Custom</span>
-                                        C
-                                    </th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="2">Custom</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th><label for="custom-height">Height</label></th>
-                                    <td><input type="number" id="custom-height" min="9" max="24" value="9" /></td>
-                                </tr>
-                                <tr>
-                                    <th><label for="custom-width">Width</label></th>
-                                    <td><input type="number" id="custom-width" min="9" max="30" value="9" /></td>
-                                </tr>
-                                <tr>
-                                    <th><label for="custom-mines">Mines</label></th>
-                                    <td><input type="number" id="custom-mines" min="10" max="999" value="10" /></td>
-                                </tr>
-                                <tr>
-                                    <th><label for="custom-interval">Interval(ms)</label></th>
-                                    <td><input type="number" id="custom-interval" min="100" max="10000" step="100" value="2000" /></td>
-                                </tr>
-                            </tbody>
-                        </table>
+        <div class="flex">
+            <div id="setting">
+                <label class="pop-up-open" for="pop-up-setting">⚙️</label>
+                <input type="checkbox" id="pop-up-setting" class="pop-up-checkbox">
+                <div class="pop-up-overlay">
+                    <div class="pop-up-window">
+                        <label id="setting-apply" class="pop-up-close" for="pop-up-setting"></label>
+                        <div class="flex">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">Setting</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th><label for="setting-difficulty">Difficulty</label></th>
+                                        <td>
+                                            <select id="setting-difficulty">
+                                                <option value="0">9x9,💣x10</option>
+                                                <option value="1">16x16,💣x40</option>
+                                                <option value="2">30x16,💣x99</option>
+                                                <option value="3">Custom</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="setting-interval">Interval</label></th>
+                                        <td>
+                                            <select id="setting-interval">
+                                                <option value="0">2.0sec</option>
+                                                <option value="1">1.0sec</option>
+                                                <option value="2">0.5sec</option>
+                                                <option value="3">Custom</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2">Custom</th>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="custom-height">Height</label></th>
+                                        <td><input type="number" id="custom-height" min="9" max="24" value="9" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="custom-width">Width</label></th>
+                                        <td><input type="number" id="custom-width" min="9" max="30" value="9" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="custom-mines">Mines</label></th>
+                                        <td><input type="number" id="custom-mines" min="10" max="999" value="10" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="custom-interval">Interval(ms)</label></th>
+                                        <td><input type="number" id="custom-interval" min="0.1" max="10.0" step="0.1" value="2.0" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                    <span><b>B</b>=Beginner <b>I</b>=Intermediate <b>E</b>=Expert <b>C</b>=Custom</span>
                 </div>
             </div>
-        </div>
-        <div id="about">
-            <label class="pop-up-open" for="pop-up-about">About</label>
-            <input type="checkbox" id="pop-up-about" class="pop-up-checkbox">
-            <div class="pop-up-overlay">
-                <div class="pop-up-window">
-                    <label class="pop-up-close" for="pop-up-about"></label>
-                    <p></p>
+            <div id="about">
+                <label class="pop-up-open" for="pop-up-about">❓</label>
+                <input type="checkbox" id="pop-up-about" class="pop-up-checkbox">
+                <div class="pop-up-overlay">
+                    <div class="pop-up-window">
+                        <label class="pop-up-close" for="pop-up-about"></label>
+                        <p></p>
+                    </div>
                 </div>
             </div>
         </div>

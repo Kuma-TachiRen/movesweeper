@@ -9,41 +9,14 @@
     align-items: center;
 }
 
-.tooltip {
-    position: relative;
-    cursor: default;
-}
-
-.tooltip-text {
-    z-index: 100;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -30px;
-    display: inline-block;
-    padding: 5px;
-    white-space: nowrap;
-    font-size: 0.8rem;
-    line-height: 1.3;
-    background: #333;
-    color: #fff;
-    border-radius: 3px;
-    transition: 0.2s ease-in;
-}
-
-.tooltip:hover .tooltip-text {
-    opacity: 1;
-    visibility: visible;
-}
-
 .pop-up-open {
     cursor: pointer;
     line-height: 30px;
     height: 30px;
-    width: 100px;
-    border: var(--main-color) solid 2px;
+    width: 30px;
+    border: var(--main-color) solid 1px;
+    font-size: 20px;
+    margin: 2px;
 }
 
 .pop-up-checkbox {
@@ -68,9 +41,10 @@
 .pop-up-window {
     width: 90vw;
     max-width: 380px;
-    height: 240px;
+    min-width: 240px;
+    height: 320px;
     background-color: #ffffff;
-    border: var(--main-color) solid 2px;
+    border: var(--main-color) solid 1px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +63,7 @@
     line-height: 30px;
     height: 30px;
     width: 30px;
-    border: var(--main-color) solid 2px;
+    border: var(--main-color) solid 1px;
     font-size: 20px;
     content: '×';
     color: var(--main-color);
@@ -187,14 +161,17 @@
     width: 24px;
 }
 
-#setting th {
-    background-color: #dddddd;
-}
-
-#setting td {
-    background-color: #eeeeee;
+#setting select {
+    border: black solid 1px;
+    padding: 3px;
+    width: 100px;
+    height: 30px;
+    box-sizing: border-box;
 }
 
 #setting input[type=number] {
-    width: 60px;
+    border: black solid 1px;
+    padding: 3px;
+    width: 90px;
+    height: 20px;
 }

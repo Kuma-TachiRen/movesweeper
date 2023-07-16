@@ -21,19 +21,12 @@ let cells = [];
 
 const setting_cells = [];
 
-Array.from(document.querySelectorAll('#setting-difficulty > tbody > tr')).forEach((row, interval) => {
-    Array.from(row.getElementsByTagName('td')).forEach((cell, board) => {
-        setting_cells.push(cell);
-        cell.innerText = (board == 0 && interval == 0) ? '✅' : '';
-        cell.addEventListener('click', e => {
-            setDifficulty(board, interval);
-            setting_cells.forEach(e => e.innerText = '');
-            cell.innerText = '✅';
-            buildBoard();
-            init();
-            render();
-        });
-    });
+document.getElementById('setting-apply').addEventListener('click', () => {
+    let difficulty = Number.parseInt(document.getElementById('setting-difficulty').value);
+    let interval = Number.parseInt(document.getElementById('setting-interval').value);
+    setDifficulty(difficulty, interval);
+    init();
+    render();
 });
 
 const elm_board = document.querySelector('#game-board > tbody');
@@ -68,9 +61,9 @@ function updateMaxMines() {
 updateMaxMines();
 
 function clampNumberInput(e) {
-    let val = Number.parseInt(e.value);
-    if (e.getAttribute('min')) val = Math.max(val, Number.parseInt(e.getAttribute('min')));
-    if (e.getAttribute('max')) val = Math.min(val, Number.parseInt(e.getAttribute('max')));
+    let val = Number.parseFloat(e.value);
+    if (e.getAttribute('min')) val = Math.max(val, Number.parseFloat(e.getAttribute('min')));
+    if (e.getAttribute('max')) val = Math.min(val, Number.parseFloat(e.getAttribute('max')));
     e.value = val;
 }
 
@@ -108,7 +101,7 @@ function setDifficulty(board, interval) {
             move_interval = 500;
             break;
         case 3:
-            move_interval = Number.parseInt(document.getElementById('custom-interval').value);
+            move_interval = Number.parseFloat(document.getElementById('custom-interval').value) * 1000;
             break;
     }
 }
