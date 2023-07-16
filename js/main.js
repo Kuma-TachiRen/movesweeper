@@ -80,8 +80,8 @@ function setDifficulty(board, interval) {
             mine_count = 40;
             break;
         case 2:
-            height = 16;
-            width = 30;
+            height = 30;
+            width = 16;
             mine_count = 99;
             break;
         case 3:
@@ -107,7 +107,6 @@ function setDifficulty(board, interval) {
 }
 
 function buildBoard() {
-    document.getElementById("game-mines").innerText = mine_count.toString().padStart(3, '0');
     elm_board.innerHTML = `<tr class="game-row">${'<td class="game-cell"></td>'.repeat(width)}</tr>`.repeat(height);
     cells = Array.from(document.getElementsByClassName('game-cell'));
     cells.forEach(function (cell, z) {
@@ -124,6 +123,7 @@ function init() {
 
 function render() {
     const board = game.boardInfo;
+    let opened_count = 0;
     board.forEach((e, z) => {
         switch (e) {
             case -1:
@@ -144,14 +144,18 @@ function render() {
                 cells[z].innerText = '';
                 cells[z].style.color = '';
                 cells[z].setAttribute('opened', true);
+                opened_count++;
                 break;
             default:
                 cells[z].innerText = e;
                 cells[z].style.color = color_list[e];
                 cells[z].setAttribute('opened', true);
+                opened_count++;
         }
     });
-    document.getElementById("game-timer").innerText = game.time.toString().padStart(3, '0');
+    let remain_count = Math.round(height * width - mine_count - opened_count);
+    document.getElementById("game-counter").innerText = `📦${remain_count.toString().padStart(3, '0')}`;
+    document.getElementById("game-timer").innerText = `⏱️${game.time.toString().padStart(3, '0')}`;
     if (game.win) {
         document.getElementById("game-reset").innerText = '😎';
     } else if (game.lose) {

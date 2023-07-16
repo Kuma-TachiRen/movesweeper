@@ -1,21 +1,30 @@
 :root {
     font-family: monospace, selif;
-    --main-color: black
+    --main-color: black;
+    font-size: 2vh;
 }
 
-.flex {
+.flex-col {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
 }
 
 .pop-up-open {
     cursor: pointer;
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
+    line-height: 5vh;
+    height: 5vh;
+    width: 5vh;
     border: var(--main-color) solid 1px;
-    font-size: 20px;
+    font-size: 4vh;
     margin: 2px;
 }
 
@@ -39,10 +48,8 @@
 }
 
 .pop-up-window {
-    width: 90vw;
-    max-width: 380px;
-    min-width: 240px;
-    height: 320px;
+    width: 40vh;
+    height: 40vh;
     background-color: #ffffff;
     border: var(--main-color) solid 1px;
     display: flex;
@@ -58,31 +65,18 @@
 .pop-up-close::before {
     cursor: pointer;
     position: absolute;
-    top: 4px;
-    right: 4px;
-    line-height: 30px;
-    height: 30px;
-    width: 30px;
+    top: 1vh;
+    right: 1vh;
+    line-height: 5vh;
+    height: 5vh;
+    width: 5vh;
     border: var(--main-color) solid 1px;
-    font-size: 20px;
+    font-size: 4vh;
     content: '×';
     color: var(--main-color);
 }
 
 /* ================================================== */
-
-#header {
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#title {
-    font-size: xx-large;
-    font-weight: bolder;
-}
 
 #main-container {
     width: 100%;
@@ -97,21 +91,24 @@
 #game-menu {
     display: flex;
     justify-content: space-between;
+    height: 4vh;
 }
 
 #game-reset {
-    height: 40px;
-    width: 40px;
+    position: absolute;
+    left: calc(50% - 2vh);
+    height: 4vh;
+    width: 4vh;
     background-color: #dddddd;
-    font-size: x-large;
+    font-size: 3vh;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: default;
 }
 
-#game-timer,
-#game-mines {
+#game-counter,
+#game-timer {
     font-size: large;
     display: flex;
     align-items: center;
@@ -129,8 +126,9 @@
 
 .game-cell {
     background-color: #dddddd;
-    height: 24px;
-    width: 24px;
+    height: 2.5vh;
+    width: 2.5vh;
+    font-size: 1.5vh;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -155,23 +153,19 @@
     text-align: center;
 }
 
-#setting th:not([colspan]),
-#setting td:not([colspan]) {
-    height: 24px;
-    width: 24px;
-}
-
 #setting select {
     border: black solid 1px;
     padding: 3px;
-    width: 100px;
-    height: 30px;
+    width: 16vh;
+    height: 4vh;
     box-sizing: border-box;
+    font-size: 1rem;
 }
 
 #setting input[type=number] {
     border: black solid 1px;
     padding: 3px;
-    width: 90px;
-    height: 20px;
+    width: 15vh;
+    height: 3vh;
+    font-size: 1rem;
 }

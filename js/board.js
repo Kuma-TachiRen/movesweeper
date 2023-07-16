@@ -15,13 +15,14 @@ class Board {
     addBombs(opened_x, opened_y) {
         const opened_z = this.posToNum(opened_x, opened_y);
         const rnd = [];
-        let cell_cnt = this.height * this.width - 1;
-        for (let i = 0; i < this.mine_count; i++, cell_cnt--) rnd.push(this.randomInt(cell_cnt));
-        rnd.sort();
+        let rnd_max = this.height * this.width - this.mine_count;
+        for (let i = 0; i < this.mine_count; i++) rnd.push(this.randomInt(rnd_max));
+        rnd.sort((a, b) => a - b);
         for (let i = 0; i < this.mine_count; i++) {
             rnd[i] += i;
             if (rnd[i] >= opened_z) rnd[i]++;
             this.data[rnd[i]] = 1;
+            console.log(rnd[i]);
         }
     }
 
@@ -66,7 +67,9 @@ class Board {
         }
         mines.forEach((z) => {
             const adj = this.adjacentCells4Dir(z);
-            let k = this.randomInt(5);
+            let cnt = 1;
+            adj.forEach((w) => { if (this.data[w] == -1) cnt++; })
+            let k = this.randomInt(cnt);
             adj.forEach((w) => {
                 if (this.data[w] == -1) {
                     if (k-- == 0) {
