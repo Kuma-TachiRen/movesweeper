@@ -1,6 +1,101 @@
 :root {
     font-family: monospace, selif;
+    --main-color: black
 }
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip {
+    position: relative;
+    cursor: default;
+}
+
+.tooltip-text {
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+    display: inline-block;
+    padding: 5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    background: #333;
+    color: #fff;
+    border-radius: 3px;
+    transition: 0.2s ease-in;
+}
+
+.tooltip:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pop-up-open {
+    cursor: pointer;
+    line-height: 30px;
+    height: 30px;
+    width: 100px;
+    border: var(--main-color) solid 2px;
+}
+
+.pop-up-checkbox {
+    display: none;
+}
+
+.pop-up-overlay {
+    display: none;
+}
+
+.pop-up-checkbox:checked+.pop-up-overlay {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+}
+
+.pop-up-window {
+    width: 90vw;
+    max-width: 380px;
+    height: 240px;
+    background-color: #ffffff;
+    border: var(--main-color) solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pop-up-close::before {
+    cursor: pointer;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    border: var(--main-color) solid 2px;
+    font-size: 20px;
+    content: '×';
+    color: var(--main-color);
+}
+
+/* ================================================== */
 
 #header {
     width: 100%;
@@ -21,28 +116,6 @@
     flex-flow: column;
     align-items: center;
     justify-content: center;
-}
-
-details {
-    width: 100%;
-    max-width: 400px;
-    border: gray solid 2px;
-    border-radius: 8px;
-}
-
-details>* {
-    padding: 8px;
-}
-
-details>summary {
-    cursor: pointer;
-    text-align: center;
-    list-style: none;
-    padding: 5px;
-}
-
-details[open]>summary {
-    border-bottom: gray solid 1px;
 }
 
 #game {}
@@ -99,7 +172,8 @@ details[open]>summary {
     background-color: #ff8888;
 }
 
-#setting {
+#setting,
+#about {
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -109,7 +183,8 @@ details[open]>summary {
 
 #setting th:not([colspan]),
 #setting td:not([colspan]) {
-    width: 30px;
+    height: 24px;
+    width: 24px;
 }
 
 #setting th {

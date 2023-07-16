@@ -29,11 +29,13 @@
                 </tbody>
             </table>
         </div>
-        <details>
-            <summary>Setting</summary>
-            <div id="setting">
-                <div>
-                    <div style="display:flex;">
+        <div id="setting">
+            <label class="pop-up-open" for="pop-up-setting">Setting</label>
+            <input type="checkbox" id="pop-up-setting" class="pop-up-checkbox">
+            <div class="pop-up-overlay">
+                <div class="pop-up-window">
+                    <label class="pop-up-close" for="pop-up-setting"></label>
+                    <div class="flex">
                         <table id="setting-difficulty">
                             <thead>
                                 <tr>
@@ -41,37 +43,61 @@
                                     <th colspan="4">Board</th>
                                 </tr>
                                 <tr>
-                                    <th>B</th>
-                                    <th>I</th>
-                                    <th>E</th>
-                                    <th>C</th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">9x9,💣x10</span>
+                                        B
+                                    </th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">16x16,💣x40</span>
+                                        I
+                                    </th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">16x30,💣x99</span>
+                                        E
+                                    </th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">Custom</span>
+                                        C
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th rowspan="4">Interval</th>
-                                    <th>B</th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">2.0 sec</span>
+                                        B
+                                    </th>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th>I</th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">1.0 sec</span>
+                                        I
+                                    </th>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th>E</th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">0.5 sec</span>
+                                        E
+                                    </th>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <th>C</th>
+                                    <th class="tooltip">
+                                        <span class="tooltip-text">Custom</span>
+                                        C
+                                    </th>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -99,7 +125,7 @@
                                     <td><input type="number" id="custom-mines" min="10" max="999" value="10" /></td>
                                 </tr>
                                 <tr>
-                                    <th><label for="custom-interval">Interval</label></th>
+                                    <th><label for="custom-interval">Interval(ms)</label></th>
                                     <td><input type="number" id="custom-interval" min="100" max="10000" step="100" value="2000" /></td>
                                 </tr>
                             </tbody>
@@ -108,11 +134,17 @@
                     <span><b>B</b>=Beginner <b>I</b>=Intermediate <b>E</b>=Expert <b>C</b>=Custom</span>
                 </div>
             </div>
-        </details>
-        <details>
-            <summary>About</summary>
-            
-        </details>
+        </div>
+        <div id="about">
+            <label class="pop-up-open" for="pop-up-about">About</label>
+            <input type="checkbox" id="pop-up-about" class="pop-up-checkbox">
+            <div class="pop-up-overlay">
+                <div class="pop-up-window">
+                    <label class="pop-up-close" for="pop-up-about"></label>
+                    <p></p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="js/board.js"></script>
     <script src="js/game.js"></script>
