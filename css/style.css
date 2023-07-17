@@ -22,43 +22,43 @@
 }
 
 .seven-seg[number="0"] {
-    background-image: url(./img/seven-seg/0.svg);
+    background-image: url(../img/seven-seg/0.svg);
 }
 
 .seven-seg[number="1"] {
-    background-image: url(./img/seven-seg/1.svg);
+    background-image: url(../img/seven-seg/1.svg);
 }
 
 .seven-seg[number="2"] {
-    background-image: url(./img/seven-seg/2.svg);
+    background-image: url(../img/seven-seg/2.svg);
 }
 
 .seven-seg[number="3"] {
-    background-image: url(./img/seven-seg/3.svg);
+    background-image: url(../img/seven-seg/3.svg);
 }
 
 .seven-seg[number="4"] {
-    background-image: url(./img/seven-seg/4.svg);
+    background-image: url(../img/seven-seg/4.svg);
 }
 
 .seven-seg[number="5"] {
-    background-image: url(./img/seven-seg/5.svg);
+    background-image: url(../img/seven-seg/5.svg);
 }
 
 .seven-seg[number="6"] {
-    background-image: url(./img/seven-seg/6.svg);
+    background-image: url(../img/seven-seg/6.svg);
 }
 
 .seven-seg[number="7"] {
-    background-image: url(./img/seven-seg/7.svg);
+    background-image: url(../img/seven-seg/7.svg);
 }
 
 .seven-seg[number="8"] {
-    background-image: url(./img/seven-seg/8.svg);
+    background-image: url(../img/seven-seg/8.svg);
 }
 
 .seven-seg[number="9"] {
-    background-image: url(./img/seven-seg/9.svg);
+    background-image: url(../img/seven-seg/9.svg);
 }
 
 /* ================================================== */
@@ -165,7 +165,7 @@
     height: 5vh;
     width: 5vh;
     background-color: var(--cell-color);
-    background-image: url(./img/reset/back.svg);
+    background-image: url(../img/reset/back.svg);
     background-size: cover;
     display: flex;
     align-items: center;
@@ -174,7 +174,7 @@
 }
 
 #game-reset:active {
-    background-image: url(./img/reset/back-push.svg);
+    background-image: url(../img/reset/back-push.svg);
 }
 
 #game-reset-face {
@@ -184,15 +184,15 @@
 }
 
 #game-reset-face[type="normal"] {
-    background-image: url(./img/reset/normal.svg);
+    background-image: url(../img/reset/normal.svg);
 }
 
 #game-reset-face[type="win"] {
-    background-image: url(./img/reset/win.svg);
+    background-image: url(../img/reset/win.svg);
 }
 
 #game-reset-face[type="lose"] {
-    background-image: url(./img/reset/lose.svg);
+    background-image: url(../img/reset/lose.svg);
 }
 
 #game-counter,
@@ -212,7 +212,7 @@
 /* ================================================== */
 
 .game-cell {
-    background-image: url(./img/cell/close.svg);
+    background-image: url(../img/cell/close.svg);
     background-size: cover;
     height: var(--cell-size);
     width: var(--cell-size);
@@ -223,67 +223,67 @@
 }
 
 .game-cell:active {
-    background-image: url(./img/cell/push.svg);
+    background-image: url(../img/cell/push.svg);
 }
 
 .game-cell[opened] {
-    background-image: url(./img/cell/open.svg);
+    background-image: url(../img/cell/open.svg);
 }
 
 .game-cell[mine] {
-    background-image: url(./img/cell/mine.svg), url(./img/cell/close.svg);
+    background-image: url(../img/cell/mine.svg), url(../img/cell/close.svg);
 }
 
 .game-cell[mine][opened] {
-    background-image: url(./img/cell/mine.svg), url(./img/cell/openedmine.svg);
+    background-image: url(../img/cell/mine.svg), url(../img/cell/openedmine.svg);
 }
 
 .game-cell[flag] {
-    background-image: url(./img/cell/flag.svg), url(./img/cell/close.svg);
+    background-image: url(../img/cell/flag.svg), url(../img/cell/close.svg);
 }
 
 .game-cell[number="1"] {
-    background-image: url(./img/cell/1.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/1.svg), url(../img/cell/open.svg);
 }
 
 .game-cell[number="2"] {
-    background-image: url(./img/cell/2.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/2.svg), url(../img/cell/open.svg);
 }
 
 .game-cell[number="3"] {
-    background-image: url(./img/cell/3.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/3.svg), url(../img/cell/open.svg);
 }
 
 .game-cell[number="4"] {
-    background-image: url(./img/cell/4.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/4.svg), url(../img/cell/open.svg);
 }
 
 .game-cell[number="5"] {
-    background-image: url(./img/cell/5.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/5.svg), url(../img/cell/open.svg);
 }
 
 .game-cell[number="6"] {
-    background-image: url(./img/cell/6.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/6.svg), url(../img/cell/open.svg);
 }
 
 .game-cell[number="7"] {
-    background-image: url(./img/cell/7.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/7.svg), url(../img/cell/open.svg);
 }
 
 .game-cell[number="8"] {
-    background-image: url(./img/cell/8.svg), url(./img/cell/open.svg);
+    background-image: url(../img/cell/8.svg), url(../img/cell/open.svg);
 }
 
 /* ================================================== */
 
 #setting-open {
     background-size: cover;
-    background-image: url(./img/setting.svg);
+    background-image: url(../img/setting.svg);
 }
 
 #about-open {
     background-size: cover;
-    background-image: url(./img/about.svg);
+    background-image: url(../img/about.svg);
 }
 
 #setting,
