@@ -14,6 +14,11 @@ class Game {
         this.board = new Board(height, width, mine_count);
     }
 
+    stop() {
+        clearInterval(this.timer_id);
+        clearInterval(this.move_timer_id);
+    }
+
     setTimer() {
         this.timer_id = setInterval(() => {
             this.time++;
@@ -39,13 +44,11 @@ class Game {
         }
         if (result == -1) {
             this.lose = true;
-            clearInterval(this.timer_id);
-            clearInterval(this.move_timer_id);
+            this.stop();
         }
         if (result == 1) {
             this.win = true;
-            clearInterval(this.timer_id);
-            clearInterval(this.move_timer_id);
+            this.stop();
         }
         this.render();
     }

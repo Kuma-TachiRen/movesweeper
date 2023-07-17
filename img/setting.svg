@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1.0in" height="1.0in" viewBox="-8 -8 16 16">
+    <defs>
+        <style>
+            .fill {
+                fill: black;
+            }
+
+            .stroke {
+                fill: none;
+                stroke: black;
+            }
+        </style>
+    </defs>
+    <g>
+        <path class="fill" d="M -1.0,-6.0 h 2.0 v 3.0 h -2.0 Z M -1.0,6.0 h 2.0 v -3.0 h -2.0 Z M -6.0,-1.0 v 2.0 h 3.0 v -2.0 Z M 6.0,-1.0 v 2.0 h -3.0 v -2.0 Z" transform="rotate(0)" />
+        <path class="fill" d="M -1.0,-6.0 h 2.0 v 3.0 h -2.0 Z M -1.0,6.0 h 2.0 v -3.0 h -2.0 Z M -6.0,-1.0 v 2.0 h 3.0 v -2.0 Z M 6.0,-1.0 v 2.0 h -3.0 v -2.0 Z" transform="rotate(30)" />
+        <path class="fill" d="M -1.0,-6.0 h 2.0 v 3.0 h -2.0 Z M -1.0,6.0 h 2.0 v -3.0 h -2.0 Z M -6.0,-1.0 v 2.0 h 3.0 v -2.0 Z M 6.0,-1.0 v 2.0 h -3.0 v -2.0 Z" transform="rotate(60)" />
+        <circle class="stroke" stroke-width="3.5" cx="0" cy="0" r="3" />
+    </g>
+</svg>

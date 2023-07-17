@@ -1,15 +1,3 @@
-const color_list = [
-    '',
-    'blue',
-    'green',
-    'red',
-    'navy',
-    'maroon',
-    'teal',
-    'black',
-    'gray'
-]
-
 let game;
 let height;
 let width;
@@ -72,7 +60,17 @@ function clampNumberInput(e) {
     e.value = val;
 }
 
-const elm_board = document.querySelector('#game-board > tbody');
+function htmlTextSevenSeg(num, digit) {
+    let ret = '';
+    for (let i = 0; i < digit; i++) {
+        ret = `<div class="seven-seg" number="${num % 10}"></div>` + ret;
+        num = Math.floor(num / 10);
+    }
+    ret = `<div class="flex-row seven-seg-container">${ret}</div>`
+    return ret;
+}
+
+const elm_board = document.querySelector('#game-board');
 
 elm_board.addEventListener('click', e => {
     if (game.win || game.lose) return;
@@ -129,7 +127,7 @@ function setDifficulty(board, interval) {
 }
 
 function buildBoard() {
-    elm_board.innerHTML = `<tr class="game-row">${'<td class="game-cell"></td>'.repeat(width)}</tr>`.repeat(height);
+    elm_board.innerHTML = `<div class="flex-row">${'<div class="game-cell"></div>'.repeat(width)}</div>`.repeat(height);
     cells = Array.from(document.getElementsByClassName('game-cell'));
     cells.forEach(function (cell, z) {
         cell.setAttribute('data-x', Math.floor(z / width));
@@ -138,7 +136,8 @@ function buildBoard() {
 }
 
 function init() {
-    document.getElementById('game-reset').innerText = '🙂';
+    document.getElementById('game-reset-face').setAttribute('type', 'normal');
+    if (game) game.stop();
     game = new Game(height, width, mine_count, move_interval, render);
     buildBoard();
 }
@@ -147,41 +146,38 @@ function render() {
     const board = game.boardInfo;
     let opened_count = 0;
     board.forEach((e, z) => {
+        if (e <= 0) cells[z].removeAttribute('number');
         switch (e) {
             case -1:
-                cells[z].innerText = '';
                 break;
             case -2:
                 if (game.win) {
-                    cells[z].innerText = '🚩';
+                    cells[z].setAttribute('flag', true);
                 } else {
-                    cells[z].innerText = '💣';
+                    cells[z].setAttribute('mine', true);
                 }
                 break;
             case -3:
-                cells[z].innerText = '💣';
                 cells[z].setAttribute('mine', true);
+                cells[z].setAttribute('opened', true);
                 break;
             case 0:
-                cells[z].innerText = '';
-                cells[z].style.color = '';
                 cells[z].setAttribute('opened', true);
                 opened_count++;
                 break;
             default:
-                cells[z].innerText = e;
-                cells[z].style.color = color_list[e];
+                cells[z].setAttribute('number', e);
                 cells[z].setAttribute('opened', true);
                 opened_count++;
         }
     });
     let remain_count = Math.round(height * width - mine_count - opened_count);
-    document.getElementById("game-counter").innerText = `📦${remain_count.toString().padStart(3, '0')}`;
-    document.getElementById("game-timer").innerText = `⏱️${game.time.toString().padStart(3, '0')}`;
+    document.getElementById("game-counter").innerHTML = `${htmlTextSevenSeg(remain_count, 3)}`;
+    document.getElementById("game-timer").innerHTML = `${htmlTextSevenSeg(game.time, 3)}`;
     if (game.win) {
-        document.getElementById("game-reset").innerText = '😎';
+        document.getElementById('game-reset-face').setAttribute('type', 'win');
     } else if (game.lose) {
-        document.getElementById("game-reset").innerText = '😫';
+        document.getElementById('game-reset-face').setAttribute('type', 'lose');
     } else {
 
     }

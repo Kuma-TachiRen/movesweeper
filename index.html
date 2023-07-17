@@ -12,25 +12,18 @@
     <div class="flex-col" style="height: 100vh;">
         <div id="main-container">
             <div id="game">
-                <table id="game-board">
-                    <thead>
-                        <tr>
-                            <td>
-                                <div id="game-menu">
-                                    <div id="game-counter"></div>
-                                    <div id="game-reset">🙂</div>
-                                    <div id="game-timer"></div>
-                                </div>
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div id="game-menu">
+                    <div id="game-counter"></div>
+                    <div id="game-reset">
+                        <div id="game-reset-face" type="normal"></div>
+                    </div>
+                    <div id="game-timer"></div>
+                </div>
+                <div id="game-board"></div>
             </div>
             <div class="flex-row">
                 <div id="setting">
-                    <label class="pop-up-open" for="pop-up-setting">⚙️</label>
+                    <label class="pop-up-open" for="pop-up-setting" id="setting-open"></label>
                     <input type="checkbox" id="pop-up-setting" class="pop-up-checkbox">
                     <div class="pop-up-overlay">
                         <div class="pop-up-window">
@@ -89,7 +82,7 @@
                     </div>
                 </div>
                 <div id="about">
-                    <label class="pop-up-open" for="pop-up-about">❓</label>
+                    <label class="pop-up-open" for="pop-up-about" id="about-open"></label>
                     <input type="checkbox" id="pop-up-about" class="pop-up-checkbox">
                     <div class="pop-up-overlay">
                         <div class="pop-up-window">

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1.0in" height="1.0in" viewBox="-8 -8 16 16">
+    <g>
+        <path fill="none" stroke="black" stroke-width="2" d="
+        M -3.0,-2.0
+        c 0.0,-4.0 6.0,-4.0 6.0,0.0
+        c 0.0,3.0 -3.0,1.0 -3.0,5.0
+        " />
+        <rect width="2" height="2" x="-1.0" y="4.0" color="black" />
+    </g>
+</svg>

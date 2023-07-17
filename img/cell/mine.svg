@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1.0in" height="1.0in" viewBox="0 0 16 16">
+    <defs>
+        <radialGradient id="gradient">
+            <stop offset="0%" stop-color="white" />
+            <stop offset="100%" stop-color="black" />
+        </radialGradient>
+    </defs>
+    <g>
+        <rect fill="black" x="7.5" y="1.0" width="1.0" height="14.0" />
+        <rect fill="black" x="7.5" y="1.0" width="1.0" height="14.0" transform="rotate(45, 8.0, 8.0)" />
+        <rect fill="black" x="7.5" y="1.0" width="1.0" height="14.0" transform="rotate(90, 8.0, 8.0)" />
+        <rect fill="black" x="7.5" y="1.0" width="1.0" height="14.0" transform="rotate(135, 8.0, 8.0)" />
+        <circle fill="black" cx="8.0" cy="8.0" r="5.0" />
+        <circle fill="url(#gradient)" cx="6.0" cy="6.0" r="2.0" />
+    </g>
+</svg>

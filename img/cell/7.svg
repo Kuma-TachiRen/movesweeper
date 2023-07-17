@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1.0in" height="1.0in" viewBox="0 0 16 16">
+   <g>
+      <path id="number" fill="black" d="M 3.0,2.0
+      h 10.0
+      v 12.0
+      h -3.0
+      v -10.0
+      h -4.0
+      v 3.0
+      h -3.0
+      Z
+       " />
+   </g>
+</svg>
