@@ -18,7 +18,7 @@ document.getElementById('setting-apply').addEventListener('click', () => {
 });
 
 document.getElementById('setting-difficulty').addEventListener('change', e => {
-    if (e.target.value == 3) {
+    if (e.target.value == -1) {
         document.getElementById('custom-height').removeAttribute('disabled');
         document.getElementById('custom-width').removeAttribute('disabled');
         document.getElementById('custom-mines').removeAttribute('disabled');
@@ -31,7 +31,7 @@ document.getElementById('setting-difficulty').addEventListener('change', e => {
 });
 
 document.getElementById('setting-interval').addEventListener('change', e => {
-    if (e.target.value == 3) {
+    if (e.target.value == -1) {
         document.getElementById('custom-interval').removeAttribute('disabled');
     }
     else {
@@ -104,7 +104,7 @@ function setDifficulty(board, interval) {
             width = 16;
             mine_count = 99;
             break;
-        case 3:
+        default:
             height = Number.parseInt(document.getElementById('custom-height').value);
             width = Number.parseInt(document.getElementById('custom-width').value);
             mine_count = Number.parseInt(document.getElementById('custom-mines').value);
@@ -112,15 +112,18 @@ function setDifficulty(board, interval) {
     }
     switch (interval) {
         case 0:
-            move_interval = 2000;
+            move_interval = 4000;
             break;
         case 1:
-            move_interval = 1000;
+            move_interval = 2000;
             break;
         case 2:
-            move_interval = 500;
+            move_interval = 1000;
             break;
         case 3:
+            move_interval = 500;
+            break;
+        default:
             move_interval = Number.parseFloat(document.getElementById('custom-interval').value) * 1000;
             break;
     }
