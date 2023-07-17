@@ -5,7 +5,7 @@
     --cell-color: #d0d0d0;
     --cell-highlight: white;
     --cell-shadow: gray;
-    --cell-size: 2.5vh;
+    --cell-size: 64px;
     --border-width: calc(var(--cell-size) * 1.5 / 16);
 }
 
@@ -16,8 +16,8 @@
 }
 
 .seven-seg {
-    height: 3vh;
-    width: 2.25vh;
+    height: calc(var(--cell-size) * 4 / 3);
+    width: var(--cell-size);
     background-size: cover;
 }
 
@@ -79,12 +79,11 @@
 
 .pop-up-open {
     cursor: pointer;
-    line-height: 4vh;
-    height: 4vh;
-    width: 4vh;
-    border: var(--main-color) solid 1px;
-    font-size: 3vh;
-    margin: 2px;
+    line-height: calc(var(--cell-size) * 2);
+    height: calc(var(--cell-size) * 2);
+    width: calc(var(--cell-size) * 2);
+    border: var(--main-color) solid var(--border-width);
+    margin: var(--border-width);
 }
 
 .pop-up-checkbox {
@@ -110,7 +109,7 @@
     width: 40vh;
     height: 40vh;
     background-color: #ffffff;
-    border: var(--main-color) solid 1px;
+    border: var(--main-color) solid var(--border-width);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,7 +128,7 @@
     line-height: 4vh;
     height: 4vh;
     width: 4vh;
-    border: var(--main-color) solid 1px;
+    border: var(--main-color) solid var(--border-width);
     font-size: 3vh;
     content: '×';
     color: var(--main-color);
@@ -138,7 +137,7 @@
 /* ================================================== */
 
 #main-container {
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -146,7 +145,7 @@
 }
 
 #game {
-    padding: 2vh;
+    padding: var(--cell-size);
     background-color: var(--cell-color);
     border: var(--border-width) solid;
     border-color: var(--cell-highlight) var(--cell-shadow) var(--cell-shadow) var(--cell-highlight);
@@ -155,15 +154,13 @@
 #game-menu {
     display: flex;
     justify-content: space-between;
-    height: 5vh;
-    margin: 0.5vh;
+    height: calc(var(--cell-size) * 2);
+    margin: calc(var(--cell-size) * 0.25) 0;
 }
 
 #game-reset {
-    position: absolute;
-    left: calc(50% - 2.5vh);
-    height: 5vh;
-    width: 5vh;
+    height: calc(var(--cell-size) * 2);
+    width: calc(var(--cell-size) * 2);
     background-color: var(--cell-color);
     background-image: url(../img/reset/back.svg);
     background-size: cover;
@@ -296,8 +293,8 @@
 }
 
 #setting select {
-    border: black solid 1px;
-    padding: 3px;
+    border: black solid var(--border-width);
+    padding: var(--border-width);
     width: 16vh;
     height: 4vh;
     box-sizing: border-box;
@@ -305,8 +302,8 @@
 }
 
 #setting input[type=number] {
-    border: black solid 1px;
-    padding: 3px;
+    border: black solid var(--border-width);
+    padding: var(--border-width);
     width: 15vh;
     height: 3vh;
     font-size: 1rem;
