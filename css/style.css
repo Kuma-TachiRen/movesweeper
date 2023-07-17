@@ -1,11 +1,11 @@
 :root {
     font-family: monospace, selif;
-    font-size: 2vh;
+    font-size: 16px;
     --main-color: black;
     --cell-color: #d0d0d0;
     --cell-highlight: white;
     --cell-shadow: gray;
-    --cell-size: 64px;
+    --cell-size: 16px;
     --border-width: calc(var(--cell-size) * 1.5 / 16);
 }
 
